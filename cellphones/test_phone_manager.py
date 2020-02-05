@@ -116,7 +116,6 @@ class TestPhoneManager(unittest.TestCase):
         # TODO The method should not make any changes but NOT raise a PhoneError if a phone
         # is assigned to the same user it is currenly assigned to.
         try:
-            self.fail("myFunc() raised ExceptionType unexpectedly!")
             testEmployee = Employee(1, 'Test Name 1')
             testPhone = Phone(1, 'Test Brand', 'Test Model')
 
