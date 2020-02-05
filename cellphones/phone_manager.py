@@ -45,7 +45,7 @@ class PhoneAssignments():
 
 
     def add_employee(self, employee):
-        # TODO raise exception if two employees with same ID are added
+        # Raises exception if two employees with same ID are added
         for empl in self.employees:
             if empl.id == employee.id:
                 raise PhoneError('There is already an employee with that ID.')
@@ -53,7 +53,7 @@ class PhoneAssignments():
 
 
     def add_phone(self, phone):
-        # TODO raise exception if two phones with same ID are added
+        # Raises exception if two phones with same ID are added
         for old_phone in self.phones:
             if old_phone.id == phone.id:
                 raise PhoneError('There is already an phone with that ID.')
@@ -62,9 +62,10 @@ class PhoneAssignments():
 
     def assign(self, assigning_phone_id, employee):
         # Find phone in phones list
-        # TODO if phone is already assigned to an employee, do not change list, raise exception
-        # TODO if employee already has a phone, do not change list, and raise exception
-        # TODO if employee already has this phone, don't make any changes. This should NOT raise an exception.
+            # Checks if phone is already assigned to the employee - if so exits out of method.
+            # Checks if phone is already assigned to a different employee - if so raises exception.
+        # Checks if given employee already has different phone assigned to them - if so raises exception
+        # If all of that ^ doesn't trigger any problems, assigns employee to phone.
         for phone in self.phones:
             if phone.id == assigning_phone_id:
                 assigning_phone = phone
@@ -85,12 +86,8 @@ class PhoneAssignments():
 
 
     def phone_info(self, employee):
-        # find phone for employee in phones list
-
-        # TODO  should return None if the employee does not have a phone
-        # TODO  the method should raise an exception if the employee does not exist
-        
-        # Checks given ID against all valid ids. If the ID is valid, method attempts to find a phone with that employee assigned to it.
+        # Find phone for employee in phones list
+        # Checks given ID against all valid IDs. If the ID is valid, method attempts to find a phone with that employee assigned to it.
         #If the given ID is not found in the employees list, raises excepetion.
         for existing_employee in self.employees:
             if existing_employee.id == employee.id:
