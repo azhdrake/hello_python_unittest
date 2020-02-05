@@ -133,3 +133,7 @@ class TestStudentLists(TestCase):
         test_class.add_student('Test Student 1')
         test_class.add_student('Test Student 2')
         self.assertFalse(test_class.is_class_full())
+
+    def test_is_class_full_class_empty(self):
+        test_class = ClassList(3)
+        self.assertFalse(test_class.is_class_full())
