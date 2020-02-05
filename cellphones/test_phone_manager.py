@@ -115,8 +115,18 @@ class TestPhoneManager(unittest.TestCase):
     def test_assign_phone_to_the_employee_who_already_has_this_phone(self):
         # TODO The method should not make any changes but NOT raise a PhoneError if a phone
         # is assigned to the same user it is currenly assigned to.
+        try:
+            self.fail("myFunc() raised ExceptionType unexpectedly!")
+            testEmployee = Employee(1, 'Test Name 1')
+            testPhone = Phone(1, 'Test Brand', 'Test Model')
 
-        self.fail()
+            testAssignmentMgr = PhoneAssignments()
+            testAssignmentMgr.add_employee(testEmployee)
+            testAssignmentMgr.add_phone(testPhone)
+
+            testAssignmentMgr.assign(1, testEmployee)
+        except PhoneError:
+            self.fail('Phone error raised by assigning same phone to employee twice.')
 
 
     def test_un_assign_phone(self):
