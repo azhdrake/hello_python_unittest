@@ -31,7 +31,7 @@ def main():
     print(assignments.phone_info(employee3))  # None
 
     assignments.assign(phone3.id, employee3)   # Assign phone 3 to employee 3
-    assignments.assign(phone2.id, employee3)   # Reassign phone 3 to employee3. TODO this should fail; employee3 should not be able to have two phones
+  #  assignments.assign(phone2.id, employee3)   # Reassign phone 3 to employee3. TODO this should fail; employee3 should not be able to have two phones
 
 
 

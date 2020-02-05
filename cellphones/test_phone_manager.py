@@ -152,4 +152,22 @@ class TestPhoneManager(unittest.TestCase):
         # TODO check that the method returns None if the employee does not have a phone
         # TODO check that the method raises an PhoneError if the employee does not exist
 
-        self.fail()
+        testEmployee1 = Employee(1, 'Test Name 1')
+        testEmployee2 = Employee(2, 'Test Name 2')
+        fakeEmployee = Employee(3, 'Fake Name')
+        testPhone1 = Phone(1, 'Test Brand 1', 'Test Model 1')
+        testPhone2 = Phone(2, 'Test Brand 2', 'Test Model 2')
+
+        testAssignmentMgr = PhoneAssignments()
+        testAssignmentMgr.add_employee(testEmployee1)
+        testAssignmentMgr.add_employee(testEmployee2)
+        testAssignmentMgr.add_phone(testPhone1)
+        testAssignmentMgr.add_phone(testPhone2)
+
+        testAssignmentMgr.assign(1, testEmployee1)
+
+        self.assertTrue(testAssignmentMgr.phone_info(testEmployee1) == testPhone1)
+        self.assertTrue(testAssignmentMgr.phone_info(testEmployee2) == None)
+        with self.assertRaises(PhoneError):
+            testAssignmentMgr.phone_info(fakeEmployee)
+        
